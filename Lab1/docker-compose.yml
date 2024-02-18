@@ -8,8 +8,8 @@ services:
       - ./code:/code
       - ./site.conf:/etc/nginx/conf.d/site.conf
     links:
-      - amogus
-  amogus:
+      - php
+  php:
     image: php:8.3-fpm
     volumes:
       - ./code:/code
