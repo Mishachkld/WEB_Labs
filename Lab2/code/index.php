@@ -224,9 +224,33 @@ function Task16()
     echo "\n" . sumNumOfNumbers(35); // сумма цифр числа
 }
 
+
+function fillArrayByElements(string $element, int $count): array
+{
+    $arrayFilled = [];
+    for ($i = 0; $i < $count; $i++) {
+        $times = $i + 1;
+        $arrayFilled[$i] = str_repeat($element, $times);
+    }
+    return $arrayFilled;
+}
+
+function arrayFill(string $item, int $countOfItems): array
+{
+    $arrayWithElements = [];
+    for ($i = 0; $i < $countOfItems; $i++) {
+        $arrayWithElements[$i] = $item;
+    }
+    return $arrayWithElements;
+}
+
 function Task17()
 {
-
+    echo "\n Задание 17";
+    echo "\n";
+    var_dump(fillArrayByElements("x", 5));
+    echo "\n";
+    var_dump(arrayFill('x', 5));
 }
 
 function Task18()
@@ -236,7 +260,12 @@ function Task18()
 
 function Task19()
 {
-
+    echo "\n" . "Задание 19";
+    echo "\n";
+    $arr = fillArrayByElements("x", 20);
+    foreach ($arr as $item){
+        echo $item . " \n";
+    }
 }
 
 function Task20()
