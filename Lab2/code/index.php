@@ -234,14 +234,62 @@ function arrayFill(string $item, int $countOfItems): array
     return $arrayWithElements;
 }
 
+function createArray2D(int $size_x, int $size_y): array
+{
+    $count = 1;
+    $arr2D = [];
+    for ($i = 0; $i < $size_x; $i++) {
+        $arr2D[$i] = [];
+        for ($j = 0; $j < $size_y; $j++) {
+            $arr2D[$i][$j] = $count++;
+        }
+    }
+    return $arr2D;
+}
+
 function Task17()
 {
     echo "\n Задание 17";
     echo "\n";
-    var_dump(fillArrayByElements("x", 5));
+    print_r(fillArrayByElements("x", 5));
     echo "\n";
-    var_dump(arrayFill('x', 5));
+    print_r(arrayFill('x', 5));
+    $arr = [[1, 2, 3], [4, 5], [6]];
+    $arrSum = 0;
+    foreach ($arr as $item) {
+        $arrSum += array_sum($item);
+    }
+    echo "\n" . $arrSum;
+    print_r(createArray2D(3, 3));
+    $arr = [2, 5, 3, 9];
+    $result = $arr[0] * $arr[1] + $arr[2] * $arr[3];
+    echo "\n" . $result;
+    $user = [
+        'name' => "Михаил",
+        'surname' => "Юрьевич",
+        'patronymic' => 222
+    ];
+    echo "\n";
+    $count = 2;
+    foreach ($user as $key => $item) {
+        if ($count != 0) {
+            echo $item . " ";
+            $count--;
+        }
+    }
+    echo "\n";
+    $date = [
+        'year' => 2024,
+        'month' => "март",
+        'day' => 7
+    ];
+    echo $date['year'] . "-" . $date['month'] . "-" . $date['day'];
+
+    $arr = ['a', 'b', 'c', 'd', 'e'];
+    echo "\n" . sizeof($arr) . "\n" . $arr[sizeof($arr) - 1] . " " . $arr[sizeof($arr) - 2];
+    
 }
+
 
 function Task18()
 {
@@ -278,7 +326,7 @@ function Task20()
     print_r(array_map("sqrt", $arr)); // получаем массив с квадратными корнями
     print_r(array_combine(range('a', 'z'), range(1, 26))); // получаем ассациативный массив
     $str = '1234567890';
-    $strSum = array_sum(str_split($str,2)); // разбиваем строку на подстроки длиной 2 и суммируем их
+    $strSum = array_sum(str_split($str, 2)); // разбиваем строку на подстроки длиной 2 и суммируем их
     echo "\n" . $strSum;
 }
 
@@ -292,6 +340,6 @@ Task15();
 Task16();
 Task17();
 Task18();
-Task19();
-Task20();
+/*Task19();
+Task20();*/
 
