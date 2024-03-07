@@ -63,7 +63,7 @@ function Task13()
     echo "\n" . $answer;
 }
 
-function getDiv($number)
+function getDiv($number): array
 {
     $arrDiv = [];
     $count = 0;
@@ -75,7 +75,7 @@ function getDiv($number)
     return $arrDiv;
 }
 
-function sumArrayUp10($arr)
+function sumArrayUp10($arr): int
 {
     $sumNumberArray = 0;
     $countNumbers = 0;
@@ -137,7 +137,7 @@ function Task14()
     $a = 10;
     $b = 3;
     */
-    abs($a - $b);
+    echo "\n" . abs($a - $b);
     $arr = [1, 2, -1, -2, 3, -3];
     $arrAbs = [];
     $i = 0;
@@ -153,7 +153,7 @@ function Task14()
     echo "\n" . $resultOfSum;
 }
 
-function printStringReturnNumber()
+function printStringReturnNumber(): int
 {
     echo "\n" . "строка";
     return 1234123;
@@ -166,7 +166,7 @@ function Task15()
     echo "\n" . $my_num;
 }
 
-function increaseEnthusiasm($str)
+function increaseEnthusiasm($str): string
 {
     return $str . "!";
 }
@@ -287,12 +287,55 @@ function Task17()
 
     $arr = ['a', 'b', 'c', 'd', 'e'];
     echo "\n" . sizeof($arr) . "\n" . $arr[sizeof($arr) - 1] . " " . $arr[sizeof($arr) - 2];
-    
+
 }
 
+function isSumOverTen($a, $b): bool
+{
+    if (is_numeric($a) and is_numeric($b)) {
+        if (($a + $b) > 10) {
+            return true;
+        }
+
+    }
+    return false;
+}
+
+function compareNumber(int $var1, int $var2): bool
+{
+    return $var1 === $var2;
+}
+
+function checkAge(int $age)
+{
+    if ((10 > $age) && (99 < $age)) {
+        echo "\n" . "Число больше 99 или меньше 10";
+    } else {
+        $arrSumOfNumber = toIntArray(str_split($age));
+        $sumOfNumber = array_sum($arrSumOfNumber);
+        if (sizeof(str_split($sumOfNumber)) > 1) {
+            echo "\n" . "сумма цифр двузначна";
+        } else {
+            echo "\n" . "сумма цифр однозначна";
+        }
+    }
+}
 
 function Task18()
 {
+    echo "\n Здание 18";
+    echo "\n" . isSumOverTen(5, 6);
+    echo "\n" . compareNumber(5, 5);
+    echo "\n";
+    $test = 0;
+    echo (!$test) ? 'верно' : '';
+    /*if (!$test) {echo 'верно';}*/
+    checkAge(22);
+
+    $arr = [1, 4, 10];
+    if (sizeof($arr) == 3) {
+        echo "\nСумма масива: " . array_sum($arr);
+    }
 
 }
 
