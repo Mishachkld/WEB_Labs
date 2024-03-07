@@ -225,16 +225,6 @@ function Task16()
 }
 
 
-function fillArrayByElements(string $element, int $count): array
-{
-    $arrayFilled = [];
-    for ($i = 0; $i < $count; $i++) {
-        $times = $i + 1;
-        $arrayFilled[$i] = str_repeat($element, $times);
-    }
-    return $arrayFilled;
-}
-
 function arrayFill(string $item, int $countOfItems): array
 {
     $arrayWithElements = [];
@@ -258,19 +248,38 @@ function Task18()
 
 }
 
+function fillArrayByElements(string $element, int $count): array
+{
+    $arrayFilled = [];
+    for ($i = 0; $i < $count; $i++) {
+        $times = $i + 1;
+        $arrayFilled[$i] = str_repeat($element, $times);
+    }
+    return $arrayFilled;
+}
+
 function Task19()
 {
     echo "\n" . "Задание 19";
     echo "\n";
     $arr = fillArrayByElements("x", 20);
-    foreach ($arr as $item){
+    foreach ($arr as $item) {
         echo $item . " \n";
     }
 }
 
 function Task20()
 {
-
+    echo "\n" . "Задание 20";
+    $arr = [1, 2, 1, 2, 3, 3]; // 12/6 = 2 среднее арифметическое
+    echo "\n" . array_sum($arr) / sizeof($arr);
+    echo "\n" . array_sum(range(1, 100));
+    echo "\n";
+    print_r(array_map("sqrt", $arr)); // получаем массив с квадратными корнями
+    print_r(array_combine(range('a', 'z'), range(1, 26))); // получаем ассациативный массив
+    $str = '1234567890';
+    $strSum = array_sum(str_split($str,2)); // разбиваем строку на подстроки длиной 2 и суммируем их
+    echo "\n" . $strSum;
 }
 
 Task1();
