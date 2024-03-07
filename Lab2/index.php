@@ -63,6 +63,29 @@ function Task13()
     echo "\n" . $answer;
 }
 
+function getDiv($number){
+    $arrDiv = [];
+    $count = 0;
+    for ($divisionNumber = 1; $divisionNumber <= $number; $divisionNumber++){
+        if ($number % $divisionNumber == 0){
+            $arrDiv[$count++] = $divisionNumber;
+        }
+    }
+    return $arrDiv;
+}
+function sumArrayUp10($arr){
+    $sumNumberArray = 0;
+    $countNumbers = 0;
+    foreach ($arr as $item){
+        if (!($sumNumberArray > 10)){
+            $sumNumberArray += $item;
+            $countNumbers++;
+        }
+    }
+    return $countNumbers;
+}
+
+
 function Task14()
 {
     echo "\n" . "Задание 14";
@@ -79,6 +102,90 @@ function Task14()
     }
     echo $resultOfDivision;
 
+    $st = pow(2, 10);
+    $stSqrt = sqrt(245); //
+    $arr = [4, 2, 5, 19, 13, 0, 10];
+    $sumOfArray = 0;
+    foreach ($arr as $item) {
+        $sumOfArray += pow($item, 2);
+    }
+    $sqrtOfSumArray = sqrt($sumOfArray);
+    echo "\n" . "Корень из суммы квадратов его элементов: " . $sqrtOfSumArray;
+    $stSqrt = sqrt(379);
+    echo "\n" . round($stSqrt, 0)
+        . " " . round($stSqrt, 1)
+        . " " . round($stSqrt, 2);
+
+    $fl = floor(sqrt(587));
+    $cl = ceil(sqrt(587));
+    $resultArray = [
+        'floor' => $fl,
+        'ceil' => $cl,
+    ];
+    $arr = [4, -2, 5, 19, -130, 0, 10];
+    $maxNum = max($arr);
+    $minNum = min($arr);
+    echo "\n" . rand(1, 100);
+    $arr = []; /// заполняем 10-ю случайными числами
+    for ($i = 1; $i < 10; $i++) {
+        $arr[$i] = rand();
+    }
+    /*
+    $a = 10;
+    $b = 3;
+    */
+    abs($a - $b);
+    $arr = [1, 2, -1, -2, 3, -3];
+    $arrAbs = [];
+    $i = 0;
+    foreach ($arr as $item) { // делаем отрицательные числа положительными
+        $arrAbs[$i++] = abs($item);
+    }
+    $number = 30;
+    // находим делители числа $number
+    $arrDiv = getDiv($number);
+    $arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    // находим колличество элементов, которое нужно сложить и записываем их в переменную $resultOfSum
+    $resultOfSum = sumArrayUp10($arr);
+    echo "\n" . $resultOfSum;
+}
+
+function printStringReturnNumber()
+{
+    echo "\n" . "строка";
+    return 1234123;
+}
+
+function Task15()
+{
+    echo "\n" . "Задание 15";
+    $my_num = printStringReturnNumber();
+    echo "\n" . $my_num;
+}
+
+function Task16()
+{
+
+}
+
+function Task17()
+{
+
+}
+
+function Task18()
+{
+
+}
+
+function Task19()
+{
+
+}
+
+function Task20()
+{
+
 }
 
 Task1();
@@ -87,4 +194,10 @@ Task11();
 Task12();
 Task13();
 Task14();
+Task15();
+Task16();
+Task17();
+Task18();
+Task19();
+Task20();
 
