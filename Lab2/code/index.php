@@ -63,21 +63,24 @@ function Task13()
     echo "\n" . $answer;
 }
 
-function getDiv($number){
+function getDiv($number)
+{
     $arrDiv = [];
     $count = 0;
-    for ($divisionNumber = 1; $divisionNumber <= $number; $divisionNumber++){
-        if ($number % $divisionNumber == 0){
+    for ($divisionNumber = 1; $divisionNumber <= $number; $divisionNumber++) {
+        if ($number % $divisionNumber == 0) {
             $arrDiv[$count++] = $divisionNumber;
         }
     }
     return $arrDiv;
 }
-function sumArrayUp10($arr){
+
+function sumArrayUp10($arr)
+{
     $sumNumberArray = 0;
     $countNumbers = 0;
-    foreach ($arr as $item){
-        if (!($sumNumberArray > 10)){
+    foreach ($arr as $item) {
+        if (!($sumNumberArray > 10)) {
             $sumNumberArray += $item;
             $countNumbers++;
         }
@@ -163,9 +166,62 @@ function Task15()
     echo "\n" . $my_num;
 }
 
+function increaseEnthusiasm($str)
+{
+    return $str . "!";
+}
+
+function repeatThreeTimes(string $str): string
+{
+    return str_repeat($str, 3);
+}
+
+function cut(string $str, int $number = 10): string
+{
+    return substr($str, 0, $number);
+}
+
+function outArrayRecursion(array $arr, int $position = 0)
+{
+    echo $arr[$position++] . " ";
+    if ($position < sizeof($arr)) {
+        outArrayRecursion($arr, $position);
+    }
+}
+
+
+function toIntArray(array $array): array
+{
+    $integerArray = [];
+    $count = 0;
+    foreach ($array as $item) {
+        $integerArray[$count++] = (int)$item;
+    }
+    return $integerArray;
+}
+
+function sumNumOfNumbers(int $number): int
+{
+    $numberStringArray = str_split($number);
+    $arrSumOfNumber = toIntArray($numberStringArray);
+    $sumOfNumber = array_sum($arrSumOfNumber);
+    while ($sumOfNumber > 9) {
+        $sumOfNumber = array_sum(toIntArray(str_split($sumOfNumber)));
+    }
+    return $sumOfNumber;
+}
+
+
 function Task16()
 {
-
+    echo "\n" . "Задание 16";
+    echo "\n" . increaseEnthusiasm("amogus");
+    echo "\n" . repeatThreeTimes("amogus");
+    echo "\n" . increaseEnthusiasm(repeatThreeTimes("Здравствуйте, товарищи"));
+    echo "\n" . cut("Hello, comrads", 3);
+    echo "\n";
+    outArrayRecursion([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]); // вывдоим последовательно массив
+    echo "\n" . sumNumOfNumbers(35); // сумма цифр числа
 }
 
 function Task17()
