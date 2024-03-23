@@ -7,31 +7,50 @@
     <title>Лаба 3</title>
 </head>
 <body>
-    <form action="../save.php" class="form" method="post">
-        <label>Email</label>
-        <label id="email" for="email">
-            <input type="email" name="email" required>
-        </label>
+    <div class="form">
+        <form action="../save.php" class="form" method="post">
+            <label>Email</label>
+            <label id="email" for="email">
+                <input type="email" name="email" required>
+            </label>
 
-        <label id="category" for="category">
-            Category
-            <select name="category">
-                <option value="cars">Cars</option>
-                <option value="other">Other</option>
-                <!--        Здесь нужно делать выборку кодом-->
-            </select>
-        </label>
+            <label id="category" for="category">
+                Category
+                <select name="category">
+                    <option value="cars">Cars</option>
+                    <option value="other">Other</option>
+                    <!--        Здесь нужно делать выборку кодом-->
+                </select>
+            </label>
 
-        <label>
-            Title
-            <input type="text" name="title" required>
-        </label>
+            <label id="title" for="title">
+                Title
+                <input type="text" name="title" required>
+            </label>
 
-        <label id="description">
-            Description
-            <textarea rows="3" name="description"></textarea>
-        </label>
-        <input type="submit" value="save">
-    </form>
+            <label id="description" for="description">
+                Description
+                <textarea rows="3" name="description"></textarea>
+            </label>
+            <input type="submit" value="save">
+        </form>
+    </div>
+    <div class="table">
+        <table>
+            <thead>
+            <th>Category </th>
+            <th>Title </th>
+            <th>Description </th>
+            </thead>
+                <tbody>
+                   <!-- <tr> это тоже сделать кодом
+                        <td>ffdd</td>
+                        <td>fff</td>
+                        <td>ffff</td>
+                    </tr>
+-->
+                </tbody>
+        </table>
+    </div>
 </body>
 </html>
