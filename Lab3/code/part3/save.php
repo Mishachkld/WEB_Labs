@@ -2,14 +2,13 @@
 
 function redirectHome(): void
 {
-    header("Location: /"); // WEB_Labs/Lab3/code/part3/html/page.html
+    header("Location: /");
     exit();
 }
 
 
 if (false === isset($_POST['email'], $_POST['category'], $_POST['title'], $_POST['description'])) {
-    header("Location: /"); // WEB_Labs/Lab3/code/part3/html/page.html
-    exit();
+    redirectHome();
 }
 
 $email = $_POST['email'];
