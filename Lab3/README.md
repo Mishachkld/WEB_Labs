@@ -1,4 +1,4 @@
-## [Ссылка на каталог с результатами](https://github.com/Mishachkld/WEB_Labs/tree/master/Lab3/ResultImages) 
+## [Ссылка на каталог с результатами выполнения программы](https://github.com/Mishachkld/WEB_Labs/tree/master/Lab3/ResultImages) 
 
 ## Регулярные выражения
 
