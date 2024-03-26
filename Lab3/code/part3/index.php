@@ -2,7 +2,6 @@
 $types = ['cars', 'helicopter', 'other'];
 $headers = ['Category', 'Email', 'Title', 'Description'];
 ?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -29,7 +28,6 @@ $headers = ['Category', 'Email', 'Title', 'Description'];
                 ?>
             </select>
         </label>
-
         <label id="title" for="title">
             Title
             <input type="text" name="title" required>
