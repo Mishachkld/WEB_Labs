@@ -1,4 +1,7 @@
+## [Ссылка на каталог с результатами](https://github.com/Mishachkld/WEB_Labs/tree/master/Lab3/ResultImages) 
+
 ## Регулярные выражения
+
 
 1. Напишите регулярку, которая найдет строки 'abba', 'adca', 'abea' по шаблону: буква 'a', два любых символа, буква 'b'.
    Пример строки: $str = 'ahb acb aeb aeeb adcb axeb';
