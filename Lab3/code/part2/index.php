@@ -28,7 +28,7 @@
     }?>
     <br>
     <h1>Форма. Сессии и Куки. Часть 2</h1>
-    <form action="session.php" method="post">
+    <form action="code/session-data.php" method="post">
         <label for="name">
             Имя
             <input name="name" required>
@@ -43,9 +43,23 @@
         </label>
         <input type="submit" value="save">
     </form>
-
-
-
+    <br>
+    <h1>Форма. Сессии и Куки. Часть 3</h1>
+    <form action="code/session-data-with-dog.php" method="post">
+        <label for="name">
+            Имя
+            <input name="name" required>
+        </label>
+        <label for="age">
+            Возраст
+            <input name="age" required>
+        </label>
+        <label for="dog">
+            Кто такая твоя собака
+            <input name="dog" required>
+        </label>
+        <input type="submit" value="Сохранить">
+    </form>
 </div>
 
 
