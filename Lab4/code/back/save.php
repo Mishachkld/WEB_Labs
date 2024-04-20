@@ -34,10 +34,13 @@ $insert = [
 $params = [
     'valueInputOption' => 'RAW'
 ];
-$service->spreadsheets_values->append(
-    $spreadSheetId,
-    $range,
-    $body,
-    $params);
-
+try {
+    $service->spreadsheets_values->append(
+        $spreadSheetId,
+        $range,
+        $body,
+        $params);
+} catch (\Google\Service\Exception $e) {
+    echo "Some errors in write data" . $e;
+}
 redirectHome();

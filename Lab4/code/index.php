@@ -8,7 +8,8 @@ $spreadSheetId = getSheetId() ?>
     try {
         $response = $service->spreadsheets_values->get($spreadSheetId, $range);
         return $response->getValues();
-    } catch (\Google\Service\Exception $e) {
+    } catch (\Google\Service\Exception $exception) {
+        echo $exception . "\n";
         return null;
     }
 }
@@ -17,7 +18,11 @@ function getService(string $name, string $path) : Google_Service_Sheets
     $client = new Google_Client();
     $client->setApplicationName($name);
     $client->setScopes([Google_Service_Sheets::SPREADSHEETS]);
-    $client->setAuthConfig($path);
+    try {
+        $client->setAuthConfig($path);
+    } catch (\Google\Exception) {
+        echo "Seme errors with config File";
+    }
     return new Google_Service_Sheets($client);
 }
 $path = __DIR__ . '/credentials/web-programming-credentials.json';
@@ -43,7 +48,7 @@ $service = getService("WEB programming", $path)
             <select name="category">
                 <?php
                 for ($i = 0; $i < sizeof($types); $i++) {
-                    echo "<option value=\"{$types[$i]}\">{$types[$i]}</option>";
+                    echo "<option value=\"$types[$i]\">$types[$i]</option>";
                 }
                 ?>
             </select>
@@ -68,7 +73,7 @@ $service = getService("WEB programming", $path)
         if (null != $headers) {
             foreach ($headers as $row) {
                 foreach ($row as $item)
-                echo "<th>{$item}</th>";
+                echo "<th>$item</th>";
             }
         }
         ?>
@@ -84,7 +89,6 @@ $service = getService("WEB programming", $path)
                     echo "<td>" . $item . "</td>";
                 }
                 echo "</tr>";
-
             }
         }?>
         </tbody>
