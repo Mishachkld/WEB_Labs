@@ -1,0 +1,17 @@
+{
+    "name": "mishach/lab4",
+    "description": "web lab",
+    "type": "project",
+    "license": "no",
+    "authors": [
+        {
+            "name": "mishach"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "curl/curl": "^1.1",
+        "ext-curl": "*",
+        "google/apiclient": "2.15.0"
+    }
+}
