@@ -1,8 +1,7 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 $types = ['cars', 'helicopter', 'other'];
-$spreadSheetId = "134eQmwAHkqQhXO_HqJLZLvfRmxy1vcPaudAtGdbdUnA";
-?>
+$spreadSheetId = "134eQmwAHkqQhXO_HqJLZLvfRmxy1vcPaudAtGdbdUnA"; ?>
 <?php
 function getDataInRange(string $range, string $spreadSheetId, Google_Service_Sheets $service): ?array
 {
@@ -13,15 +12,16 @@ function getDataInRange(string $range, string $spreadSheetId, Google_Service_She
         return null;
     }
 }
-
-$client = new Google_Client();
-$client->setApplicationName("WEB programming");
-$client->setScopes([Google_Service_Sheets::SPREADSHEETS]);
-$client->setAuthConfig(__DIR__ . '/credentials/web-programming-credentials.json');
-$service = new Google_Service_Sheets($client);
-?>
-
-<!doctype html>
+function getService(string $name, string $path) : Google_Service_Sheets
+{
+    $client = new Google_Client();
+    $client->setApplicationName($name);
+    $client->setScopes([Google_Service_Sheets::SPREADSHEETS]);
+    $client->setAuthConfig($path);
+    return new Google_Service_Sheets($client);
+}
+$path = __DIR__ . '/credentials/web-programming-credentials.json';
+$service = getService("WEB programming", $path)?><!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -77,12 +77,12 @@ $service = new Google_Service_Sheets($client);
         $rowsArray = getDataInRange($rangeOfAllContent, $spreadSheetId, $service);
         if (null != $rowsArray) {
             foreach ($rowsArray as $row) {
+                echo "<tr>";
                 foreach ($row as $item) {
-                    echo "<tr>";
-                    echo $item;
-                    echo "</tr>";
+                    echo "<td>" . $item . "</td>";
                 }
             }
+            echo "</tr>";
         } ?>
         </tbody>
     </table>
