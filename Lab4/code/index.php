@@ -1,9 +1,9 @@
-<?php
+<?php ob_start();
 require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/back/constants.php';
 $types = ['cars', 'helicopter', 'other'];
-$spreadSheetId = "134eQmwAHkqQhXO_HqJLZLvfRmxy1vcPaudAtGdbdUnA"; ?>
-<?php
-function getDataInRange(string $range, string $spreadSheetId, Google_Service_Sheets $service): ?array
+$spreadSheetId = getSheetId() ?>
+<?php function getDataInRange(string $range, string $spreadSheetId, Google_Service_Sheets $service): ?array
 {
     try {
         $response = $service->spreadsheets_values->get($spreadSheetId, $range);
@@ -21,7 +21,9 @@ function getService(string $name, string $path) : Google_Service_Sheets
     return new Google_Service_Sheets($client);
 }
 $path = __DIR__ . '/credentials/web-programming-credentials.json';
-$service = getService("WEB programming", $path)?><!doctype html>
+$service = getService("WEB programming", $path)
+?>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -81,9 +83,10 @@ $service = getService("WEB programming", $path)?><!doctype html>
                 foreach ($row as $item) {
                     echo "<td>" . $item . "</td>";
                 }
+                echo "</tr>";
+
             }
-            echo "</tr>";
-        } ?>
+        }?>
         </tbody>
     </table>
 </div>

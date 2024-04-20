@@ -1,5 +1,5 @@
 <?php
-require_once '../index.php';
+require '../index.php';
 function redirectHome(): void
 {
     header("Location: /");
@@ -25,7 +25,7 @@ $dataRow =[
     ]
 ];
 
-$spreadSheetId = "134eQmwAHkqQhXO_HqJLZLvfRmxy1vcPaudAtGdbdUnA";
+$spreadSheetId = getSheetId();
 $body = new Google_Service_Sheets_ValueRange();
 $body->setValues($dataRow);
 $insert = [
@@ -39,4 +39,5 @@ $service->spreadsheets_values->append(
     $range,
     $body,
     $params);
+
 redirectHome();

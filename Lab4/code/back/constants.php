@@ -1,5 +1,5 @@
 <?php
-$typeOfGoogleService = "spreadsheets";
-$url = "https://docs.google.com/$typeOfGoogleService/d/$spreadSheetId/edit#gid=0";
-echo $url;
-?>
+function getSheetId() : string
+{
+    return "134eQmwAHkqQhXO_HqJLZLvfRmxy1vcPaudAtGdbdUnA";
+}
