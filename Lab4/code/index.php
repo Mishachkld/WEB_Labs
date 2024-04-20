@@ -2,7 +2,6 @@
 require __DIR__ . '/vendor/autoload.php';
 $types = ['cars', 'helicopter', 'other'];
 $spreadSheetId = "134eQmwAHkqQhXO_HqJLZLvfRmxy1vcPaudAtGdbdUnA";
-$rangeHeaders = "Лист1!A1:D1";
 ?>
 <?php
 function getDataInRange(string $range, string $spreadSheetId, Google_Service_Sheets $service): ?array
@@ -62,9 +61,11 @@ $service = new Google_Service_Sheets($client);
     <table>
         <thead>
         <?php
+        $rangeHeaders = "Лист1!A1:D1";
         $headers = getDataInRange($rangeHeaders, $spreadSheetId, $service);
         if (null != $headers) {
-            foreach ($headers as $item) {
+            foreach ($headers as $row) {
+                foreach ($row as $item)
                 echo "<th>{$item}</th>";
             }
         }
