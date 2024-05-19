@@ -4,6 +4,7 @@ require 'WorkWithDB.php';
 $addDataQuery = 'INSERT INTO ad (email, title, description, category) VALUES("mishach@amogus.com", "smthing", "desc", "helicopter")';
 $selectAllFromAD = 'SELECT * FROM ad ORDER BY created DESC';
 $mysql = WorkWithDataBase::getConnectToDataBase();
-WorkWithDataBase::addElementInDataBase($mysql, "fdfsdf@gmail.com", "fdsfsdfdsfs", "какое-то описангие");
+//WorkWithDataBase::addElementInDataBase($mysql, "fdfsdf@gmail.com", "fdsfsdfdsfs", "какое-то описангие");
 WorkWithDataBase::showAllElementsFormDataBase($mysql);
+WorkWithDataBase::deleteElementFromDataBase($mysql, 'fdfsdf@gmail.com', 'какое-то описангие');
 $mysql->close();
