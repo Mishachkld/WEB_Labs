@@ -32,7 +32,7 @@
             <label for="type">Тип</label>
             <label for="type"><input type="radio" name="type" value="add"/>Add</label>
             <label for="type"><input type="radio" name="type" value="delete" />Delete</label>
-            <label for="type"><input type="radio" name="type" value="update" />Update</label>
+<!--            <label for="type"><input type="radio" name="type" value="update" />Update</label>-->
         </div>
         <button type="submit">Добавить</button>
     </form>

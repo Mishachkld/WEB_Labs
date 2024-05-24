@@ -8,7 +8,7 @@ function redirectHome(): void
 }
 
 if (false === isset($_POST['email'], $_POST['category'], $_POST['description'], $_POST['type'])) {
-//    redirectHome();
+    redirectHome();
 }
 
 $mysql = WorkWithDataBase::getConnectToDataBase();
@@ -24,8 +24,9 @@ switch ($type){
     case "delete":
         WorkWithDataBase::deleteElementInDataBase($mysql, $email, $description);
         break;
-    case "update":
-        break;
+/*    case "update":
+        WorkWithDataBase::updateElementInDataBase($mysql, $email, $category, $description);
+        break;*/
 }
 
 

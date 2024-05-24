@@ -23,11 +23,16 @@ class WorkWithDataBase
         $allDataFromDB = self::getAllDataFromDB($mySql);
         if (null != $allDataFromDB) {
             while ($row = $allDataFromDB->fetch_assoc()) {
-                echo $row['email'] . " : " . $row['description'] . " : " . $row['title'] . "<br>";
+                echo "</tr>";
+                foreach ($row as $value) {
+                    if ($value != $row['id'] && $value != $row['created'])
+                        echo "<td>" . $value . "</td>";
+                }
+                echo "</tr>";
             }
             $allDataFromDB->close();
         } else {
-            echo 'null' . '<br>';
+            echo 'null' ;
         }
     }
 
@@ -44,6 +49,13 @@ class WorkWithDataBase
     {
         $deleteDataQuery = "DELETE FROM ad WHERE email='$email' AND description='$description'";
         $mySql->query($deleteDataQuery);
+    }
+
+    public static function updateElementInDataBase($mySql, $email = "mishach@amogus.com", $title = "smthing", $description = "desc", $category = "helicopter"): void
+    {
+        $email = str_replace('@', 'DOG', $email);
+        $updateQuery = "UPDATE ad SET title={$title}, description={$description}, category={$category} WHERE title={$title} AND description={$description}";
+        $mySql->query($updateQuery);
     }
 
 
