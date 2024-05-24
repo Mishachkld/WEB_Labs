@@ -23,7 +23,7 @@ class WorkWithDataBase
         $allDataFromDB = self::getAllDataFromDB($mySql);
         if (null != $allDataFromDB) {
             while ($row = $allDataFromDB->fetch_assoc()) {
-                echo $row['email'] . " : " . $row['title'] . "<br>";
+                echo $row['email'] . " : " . $row['description'] . " : " . $row['title'] . "<br>";
             }
             $allDataFromDB->close();
         } else {
