@@ -40,7 +40,7 @@ class WorkWithDataBase
         return null;
     }
 
-    public static function deleteElementFromDataBase($mySql, $email, $description)
+    public static function deleteElementInDataBase($mySql, $email, $description): void
     {
         $deleteDataQuery = "DELETE FROM ad WHERE email='$email' AND description='$description'";
         $mySql->query($deleteDataQuery);
